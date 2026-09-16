@@ -427,7 +427,7 @@ export default function Panel(props: PluginSurfaceProps<Dashboard>) {
               <label>助手解压目录</label>
               <Input value={directory} onChange={setAssistantDirectory} disabled={processBusy || owned}
                 placeholder="选择完整解压后的 neko_calabiqiu_assistant 文件夹" />
-              <Text>连接脚本会自动填写。只有移动助手或首次手动接入时才需要修改；更换目录前先停止助手。</Text>
+              <Text>首次接入脚本会自动填写，正常使用无需修改。移动助手目录后，请先停止助手并退出 N.E.K.O，再从新目录重新运行接入脚本。</Text>
             </Stack>
           </details>
         </Stack>
@@ -478,15 +478,15 @@ export default function Panel(props: PluginSurfaceProps<Dashboard>) {
           <Step index="1" title="下载配套完整包">
             <Text>用上方密码完整解压到固定目录。模型和运行环境都已包含，无需单独导入插件包。</Text>
           </Step>
-          <Step index="2" title="连接已解压的助手">
-            <Text>从市场安装插件后，展开上方「助手位置与连接设置」，填写解压后的 neko_calabiqiu_assistant 文件夹路径，点击「启动助手」。仅首次通过完整包接入时，才需要退出 N.E.K.O 并运行「首次使用_连接到NEKO.cmd」。</Text>
+          <Step index="2" title="首次运行一次 CMD 接入">
+            <Text>退出 N.E.K.O，在解压后的 neko_calabiqiu_assistant 文件夹中双击「首次使用_连接到NEKO.cmd」，等待提示「连接完成」。脚本会自动设置助手位置，无需手动填写路径。</Text>
           </Step>
-          <Step index="3" title="启用插件，直接打开游戏">
-            <Text>在插件列表启用「卡拉彼丘陪伴」。等待游戏时不会加载模型；游戏启动后助手异步加载，就绪后显示「已连接」。游戏退出后助手自动关闭。</Text>
+          <Step index="3" title="重新打开 N.E.K.O，通过面板控制">
+            <Text>重新打开 N.E.K.O，在插件列表启用「卡拉彼丘陪伴」，以后通过面板启动、停止或重启助手，无需重复运行 CMD。打开游戏后助手自动准备，就绪后显示「已连接」；退出游戏后助手自动关闭。</Text>
           </Step>
         </Steps>
       </Card>
-      <Alert tone="info">关闭面板页面不会停止插件。移动助手目录后，先停止助手，更新上方目录后重新启动；修改助手设置后，在游戏运行时点击「重启助手」。</Alert>
+      <Alert tone="info">关闭面板页面不会停止插件。移动助手目录后，先停止助手并退出 N.E.K.O，再从新目录运行一次接入 CMD；修改助手设置后，在游戏运行时点击「重启助手」。</Alert>
       </details>
 
       {/* ── card grid ── */}
